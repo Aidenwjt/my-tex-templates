@@ -1,0 +1,136 @@
+% TODO
+% - question 1 []
+% - question 2 []
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tasks}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathtools} % also loads amsmath
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{chngcntr}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+% \chead{\hmwkClass\ (\hmwkClassInstructor\): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+%------Create Problem Sections
+
+\newcommand{\enterProblemHeader}[1]
+{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]
+{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%-------- Homework Problem Environment
+\newenvironment{homeworkProblem}[1][-1]
+{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}
+{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+%----- Assignment // project etc -----
+\newcommand{\hmwkTitle}{Assignment\ \#}
+%----- Course // UCID ------------------------------
+\newcommand{\hmwkClass}{}
+\newcommand{\UCID}{\textbf{UCID: }}
+%----- Name ------------------------------
+\newcommand{\hmwkAuthorName}{\textbf{}}
+
+
+%------ Title Page------------------------------
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass\\ \hmwkTitle}}\\
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName\ \\ \UCID}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%------ Various Helper Commands -----------------
+%Lazy Integers
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+%------ START ------------------------------------
+\begin{document}
+
+\maketitle
+%------ Hide pg # from title page -----------------
+\thispagestyle{empty}
+\pagebreak
+% Solution 1
+\begin{homeworkProblem}
+    \begin{proof}
+
+    \end{proof}
+\end{homeworkProblem}
+\pagebreak
+
+% Solution 2
+\begin{homeworkProblem}
+    \begin{proof}
+
+    \end{proof}
+\end{homeworkProblem}
+\end{document}
