@@ -6,8 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int 
-main(int argc, char *argv[]) 
+int main(int argc, char *argv[]) 
 {
 	if(argc != 2)
 	{
@@ -26,10 +25,13 @@ main(int argc, char *argv[])
 			 "\\begin{document}\n"
 			 "\\pagestyle{fancy}\n"
 			 "\\fancyhead{}\n"
-			 "\\fancyhead[L]{\\textbf{Title}}\n"
-			 "\\fancyhead[C]{\\textbf{Due Date}}\n"
-			 "\\fancyhead[R]{\\textbf{Name}}\n"
-			 "TURN MY SWAG ON!!!\n"
+			 "\\fancyhead[L]{\\textbf{Name}}\n"
+			 "\\fancyhead[C]{\\textbf{Title}}\n"
+			 "\\fancyhead[R]{\\textbf{Due Date}}\n"
+			 "\\begin{enumerate}[1.]\n"
+			 "\\item{[\\textbf{Solution}]} Question description.\n"
+			 "Some text\n"
+			 "\\end{enumerate}\n"
 			 "\\end{document}";
 
 	FILE *fp;
