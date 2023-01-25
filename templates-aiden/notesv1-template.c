@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) 
 {
@@ -9,7 +10,8 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	char template[] ="\\documentclass[11pt]{article}\n"
+	char tex_template[] =
+		         "\\documentclass[11pt]{article}\n"
 			 "\\setlength{\\textwidth}{430pt}\\setlength{\\oddsidemargin}{11pt}\n"
 			 "\\usepackage{amssymb}\n"
 			 "\\usepackage{amsthm}\n"
@@ -27,11 +29,24 @@ int main(int argc, char *argv[])
 			 "\\subsection{Subsection Name}\n"
 			 "Some text\n"
 			 "\\end{document}";
+	
+	char makefile_template[64];
+	memset(makefile_template, '\0', sizeof(makefile_template));
 
-	FILE *fp;
-	fp = fopen(argv[1],"w+");
-	fprintf(fp, "%s", template);
-	fclose(fp);
+	snprintf(
+		makefile_template, 
+		sizeof(makefile_template),
+		"all: compile\n\ncompile:\n\tpdflatex %s\n\txdg-open %s",
+		argv[1],argv[1]
+	);
+
+	FILE *fp1,*fp2;
+	fp1 = fopen(argv[1],"w+");
+	fprintf(fp1, "%s", tex_template);
+	fclose(fp1);
+	fp2 = fopen("Makefile","w+");
+	fprintf(fp2, "%s", makefile_template);
+	fclose(fp2);
 	
 	return 0;
 }
