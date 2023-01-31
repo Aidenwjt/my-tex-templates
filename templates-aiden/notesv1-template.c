@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
 	if(argc != 2)
 	{
-		printf("Usage: %s FILENAME.tex\n", argv[0]);
+		printf("Usage: %s FILENAME (Excluding file type)\n", argv[0]);
 		return 0;
 	}
 
@@ -41,6 +41,14 @@ int main(int argc, char *argv[])
 	);
 
 	FILE *fp1,*fp2;
+	char file_name[64];
+	memset(file_name, '\0', sizeof(file_name));
+	snprintf(
+		file_name, 
+		sizeof(file_name),
+		"%s.tex",
+		argv[1]
+	);
 	fp1 = fopen(argv[1],"w+");
 	fprintf(fp1, "%s", tex_template);
 	fclose(fp1);

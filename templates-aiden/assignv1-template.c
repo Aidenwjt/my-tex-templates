@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	if(argc != 2)
 	{
-		printf("Usage: %s FILENAME.tex\n", argv[0]);
+		printf("Usage: %s FILENAME (Excluding file type)\n", argv[0]);
 		return 0;
 	}
 
@@ -42,12 +42,20 @@ int main(int argc, char *argv[])
 	snprintf(
 		makefile_template, 
 		sizeof(makefile_template),
-		"all: compile\n\ncompile:\n\tpdflatex %s\n\txdg-open %s",
+		"all: compile\n\ncompile:\n\tpdflatex %s.tex\n\txdg-open %s.pdf",
 		argv[1],argv[1]
 	);
 
 	FILE *fp1,*fp2;
-	fp1 = fopen(argv[1],"w+");
+	char file_name[64];
+	memset(file_name, '\0', sizeof(file_name));
+	snprintf(
+		file_name, 
+		sizeof(file_name),
+		"%s.tex",
+		argv[1]
+	);
+	fp1 = fopen(file_name,"w+");
 	fprintf(fp1, "%s", tex_template);
 	fclose(fp1);
 	fp2 = fopen("Makefile","w+");
