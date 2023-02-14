@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		"%s.tex",
 		argv[1]
 	);
-	fp1 = fopen(argv[1],"w+");
+	fp1 = fopen(file_name,"w+");
 	fprintf(fp1, "%s", tex_template);
 	fclose(fp1);
 	fp2 = fopen("Makefile","w+");
